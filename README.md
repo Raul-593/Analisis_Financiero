@@ -28,7 +28,7 @@ Realizar un análisis exploratorio de las transacciones financieras para identif
 | transactions_data.csv    | Transacciones principales | 13,305,915     |
 | mcc_codes.json           | Códigos de categoría MCC  | 108 Categorias |
 | train_fraude_labels.json | Etiquetas de fraude       | 8,914,963      |
-| users_data.csv           | Datos demográficso        | 2,000          |
+| users_data.csv           | Datos demográficos        | 2,000          |
 | card.csv                 | Datos de compra           | 6,146          |
 
 #### 2.3 Período Analizado
