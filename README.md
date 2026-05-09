@@ -15,7 +15,9 @@ Este reporte presenta los resultados del análisis exploratorio de datos (EDA) r
 | 13 M+                    | 108        | 0.15 %                    | 7.85%                  |
 | ------------------------ | ---------- | ------------------------- | ---------------------- |
 | Transacciones analizadas | Categorias | Tasa de Fraude Confirmada | Transacciones atípicas |
+
 *Hallazgo crítico: Las transacciones fraudulentas tienen un monto promedio mayor del 2.5x al de las transacciones legítimas ($110 vs $43), y se concentran desproporcionadamente en transacciones de monto atípico.*
+
 ### 2. Objetivo y Alcance
 ---
 #### 2.1 Objetivo 
@@ -26,9 +28,9 @@ Realizar un análisis exploratorio de las transacciones financieras para identif
 | ------------------------ | ------------------------- | -------------- |
 | transactions_data.csv    | Transacciones principales | 13,305,915     |
 | mcc_codes.json           | Códigos de categoría MCC  | 108 Categorias |
-| train_fraude_labels.json | Etiquetas de fraude       |                |
-| users_data.csv           | Datos demográficso        |                |
-| card.csv                 | Datos de compra           |                |
+| train_fraude_labels.json | Etiquetas de fraude       | 8,914,963      |
+| users_data.csv           | Datos demográficso        | 2,000          |
+| card.csv                 | Datos de compra           | 6,146          |
 #### 2.3 Período Analizado
 Enero 2010 --- Octubre 2019 
 
