@@ -65,8 +65,8 @@ Enero 2010 --- Octubre 2019
 | ------------ | :----------: | :-----------: |
 | Promedio     | 42.98       | Inflado por outliers |
 | Mediana      | 28.99       | Valor típico real de transacción |
-| Máximo       | 6,820.20    | Transacción más frande registrada |
-| Mínimo       | - 500       | Devolución más grande registrada |
+| Máximo       | $6,820.20    | Transacción más frande registrada |
+| Mínimo       | -$500       | Devolución más grande registrada |
 | Total dataset | 13,305,915 | Transacciones en el periodo 2010 - 2019 |
 
 #### 4.2 Tipos de transacción
