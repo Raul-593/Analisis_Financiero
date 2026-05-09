@@ -13,11 +13,10 @@
 Este reporte presenta los resultados del análisis exploratorio de datos (EDA) realizado sobre el dataset [transacciones financieras](https://www.kaggle.com/datasets/computingvictor/transactions-fraud-datasets) del período 2010-2019. El análisis abarca más de 13 millones de transacciones distribuidas en 108 categorías de comercio, con el objetivo de identificar patrones de gasto, comportamiento por segmento y señales de actividades fraudulentas.
 
 | 13 M+                    | 108        | 0.15 %                    | 7.85%                  |
-| ------------------------ | ---------- | ------------------------- | ---------------------- |
+| :----------------------: | :--------: | :-----------------------: | :--------------------: |
 | Transacciones analizadas | Categorias | Tasa de Fraude Confirmada | Transacciones atípicas |
 
 *Hallazgo crítico: Las transacciones fraudulentas tienen un monto promedio mayor del 2.5x al de las transacciones legítimas ($110 vs $43), y se concentran desproporcionadamente en transacciones de monto atípico.*
-
 ### 2. Objetivo y Alcance
 ---
 #### 2.1 Objetivo 
@@ -25,12 +24,13 @@ Realizar un análisis exploratorio de las transacciones financieras para identif
 #### 2.2 Fuente de Datos
 
 | Archvio                  | Descripción               | Registros      |
-| ------------------------ | ------------------------- | -------------- |
+| ------------------------ | :-----------------------: | -------------: |
 | transactions_data.csv    | Transacciones principales | 13,305,915     |
 | mcc_codes.json           | Códigos de categoría MCC  | 108 Categorias |
 | train_fraude_labels.json | Etiquetas de fraude       | 8,914,963      |
 | users_data.csv           | Datos demográficso        | 2,000          |
 | card.csv                 | Datos de compra           | 6,146          |
+
 #### 2.3 Período Analizado
 Enero 2010 --- Octubre 2019 
 
@@ -61,12 +61,13 @@ Enero 2010 --- Octubre 2019
 ---
 #### 4.1 Estadísticas generales
 
-| **Describe** | **Valores** |
-| ------------ | :----------: |
-| Promedio     | 42.98       |
-| Mediana      | 28.99       |
-| Máximo       | 6,820.20    |
-| Mínimo       | - 500       |
+| **Describe** | **Valores** | Interpretación |
+| ------------ | :----------: | :-----------: |
+| Promedio     | 42.98       | Inflado por outliers |
+| Mediana      | 28.99       | Valor típico real de transacción |
+| Máximo       | 6,820.20    | Transacción más frande registrada |
+| Mínimo       | - 500       | Devolución más grande registrada |
+| Total dataset | 13,305,915 | Transacciones en el periodo 2010 - 2019 |
 
 #### 4.2 Tipos de transacción
 
@@ -104,7 +105,10 @@ Enero 2010 --- Octubre 2019
 | Tasa de Fraude General | Monto Promedio Fraude | Monto Promedio legítima | Diferencia de monto |
 | :--------------------: | :--------------------: | :--------------------: | :--------------------: |
 | 0.15%                  | $110                  | $43                     | 2.5x                |
-![[pie_fraudulentas_legitimas.png]]
+
+<div align="center">
+  <img src="./outputs/pie_fraudulentas_legitimas.png" alt="LegitimasVsFraudulentas" width="80%" />
+</div>
 
 #### 5.2 Comparación de Montos: Legítimas vs Fraude
 
@@ -136,7 +140,7 @@ Enero 2010 --- Octubre 2019
 | Monto Máximo               | $6,820.20                       |
 | Tasa de fraude en outliers | 0.54% (3.6 mas que el promedio) |
 
-#### 5. Detección de patrones de Smurfing
+#### 5.5 Detección de patrones de Smurfing
 Se aplicó un algoritmo de detección de transacciones múltiples en ventanas de tiempo cortas combinando tres criterios: volumen diario superior al percentil 99, monto promedio inferior al percentil 25, y desviación estándar de montos menor a $5.
 
 | Criterio                   | Umbral p95 | Umbral p99 |
@@ -158,7 +162,7 @@ Se aplicó un algoritmo de detección de transacciones múltiples en ventanas de
 | Outliers tienen una tasa de fraude mayor                                  | 0.54% vs 0.15%                  | Transacciones de monto atípico deben activar revisión automática                                     |
 | Transacciones sin etiqueta (33%)                                          | Mas de 4M de registros perdidos | Dataset incompleto, lo que lleva a que las conclusiones de fraude se deban interpretarse con cautela |
 | No se detectaron patrones reales de smurfing                              | 2 falsos positivos              | Algoritmo requiere refinamiento con variables adicionales                                            |
-| La categoría *Service Stations* concentra mayor volumen de outliers       | 117,463 outliers                | Inusual para categoría de gasto cotidiano - requiere un análisis adicional                           |
+| La categoría *Service Stations* concentra mayor volumen de outliers       | 177,463 outliers                | Inusual para categoría de gasto cotidiano - requiere un análisis adicional                           |
 ### 7. Recomendaciones
 ---
 #### 7.1 Acciones inmediatas
